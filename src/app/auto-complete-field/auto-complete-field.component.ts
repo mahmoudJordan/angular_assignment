@@ -9,7 +9,7 @@ export const AUTO_COMPLETE_VALUE_ACCESSOR: any = {
 };
 
 @Component({
-  selector: 'app-auto-complete-field',
+  selector: 'auto-complete-field',
   templateUrl: './auto-complete-field.component.html',
   styleUrls: ['./auto-complete-field.component.scss'],
   providers: [AUTO_COMPLETE_VALUE_ACCESSOR]

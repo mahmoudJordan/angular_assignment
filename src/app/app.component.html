@@ -3,9 +3,9 @@
   <div class="container">
     <div class="row">
       <h3>Country </h3>
-      <app-auto-complete-field [(ngModel)]="selectedCountries"
+      <auto-complete-field [(ngModel)]="selectedCountries"
         [suggestions]="['Jordan' , 'Egypt' , 'Germany' , 'USA' , 'Iraq']" [placeholder]="'choose a country'">
-      </app-auto-complete-field>
+      </auto-complete-field>
     </div>
 
     <div class="saperator"></div>
@@ -13,22 +13,26 @@
 
     <div class="row">
       <h3>Css Available Colors</h3>
-      <app-auto-complete-field [(ngModel)]="selectedColors"
+      <auto-complete-field [(ngModel)]="selectedColors"
         [suggestions]="cssAvailableColors" [placeholder]="'choose a color'">
-      </app-auto-complete-field>
+      </auto-complete-field>
     </div>
 
 
     <div class="row">
+      <h3>Pre selected values Example</h3>
+      <auto-complete-field [(ngModel)]="preSelectedColors"
+        [suggestions]="cssAvailableColors" [placeholder]="'choose a color'">
+      </auto-complete-field>
+    </div>
+
+    <div class="row">
       <h3>Disabled Example</h3>
-      <app-auto-complete-field [(ngModel)]="selectedColors"
+      <auto-complete-field [(ngModel)]="selectedColors"
         [suggestions]="cssAvailableColors" [placeholder]="'choose a color'" [disabled]="true">
-      </app-auto-complete-field>
+      </auto-complete-field>
     </div>
 
 
   </div>
-
-
-  <!-- <h2>value : <span *ngFor="let selectedCountry of selectedCountries">{{selectedCountry}}</span> </h2> -->
 </div>

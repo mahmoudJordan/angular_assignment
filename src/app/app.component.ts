@@ -10,5 +10,6 @@ export class AppComponent {
   title = 'Autocomplete';
   selectedCountries = [];
   selectedColors = [];
+  preSelectedColors = ['red' , 'green'];
   cssAvailableColors = CSS_COLOR_NAMES;
 }
