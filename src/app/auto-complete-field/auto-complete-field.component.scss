@@ -1,40 +1,48 @@
-.input-main-container .input {
-  border:0px;
-  outline: 0px;
-  margin-left: 10px;
-}
-
-
-
-.input-main-container{
+.input-main-container {
   border: 1px solid #eee;
-  padding:10px;
+  padding: 10px;
   display: inline-block;
 }
 
-.input-main-container .chips-container
-{
-  display: contents;
+.input-main-container.disabled {
+  background-color: #eee;
 }
 
-.input-main-container .chip {
-  display: inline-block;
-  padding: 5px;
-  font-size: 14px;
-  border-radius: 7px;
-  background-color: #f1f1f1;
-  margin-left:5px;
+.input-main-container.disabled .input::placeholder {
+  color: rgb(144, 144, 144);
+
 }
 
+.input-main-container {
+  .input {
+    border: 0px;
+    outline: 0px;
+    margin-left: 10px;
+  }
 
-.input-main-container .closebtn {
-  padding-left: 10px;
-  color: #000;
-  font-weight: bold;
-  float: right;
-  cursor: pointer;
-}
+  .chips-container {
+    display: contents;
+  }
 
-.input-main-container .closebtn:hover {
-  color: #000;
+  .chip {
+    display: inline-block;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 7px;
+    background-color: #f1f1f1;
+    margin-left: 5px;
+  }
+
+
+  .closebtn {
+    padding-left: 10px;
+    color: #000;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+  }
+
+  .closebtn:hover {
+    color: #000;
+  }
 }

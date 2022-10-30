@@ -15,17 +15,26 @@ export const AUTO_COMPLETE_VALUE_ACCESSOR: any = {
   providers: [AUTO_COMPLETE_VALUE_ACCESSOR]
 })
 export class AutoCompleteFieldComponent implements ControlValueAccessor {
+
+  // reference to access the input field element
   @ViewChild('inputElement') inputElement: any;
+
+  // array of suggestions
   @Input() suggestions: string[] = [];
+
+  // placeholder text
   @Input() placeholder: string = "";
 
+
+  // placeholder text
+  @Input() disabled: boolean = false;
 
   // this unique id is for the input datalist
   // id is required for the suggestions datalist to appear under the input field
   // I'll generate a unique id for each instance of this component to prevent collisions
   _uniqueId: string;
 
-  // internal value
+  // internal selected values
   _value: string[] = [];
 
   // wrappers for the interface implementations
@@ -73,7 +82,10 @@ export class AutoCompleteFieldComponent implements ControlValueAccessor {
   }
 
   removeFromChips(removed: string) {
+    // update the internal array
     this._value = this._value.filter(x => x != removed)
+
+    // trigger change notifier
     this.onChange(this._value);
   }
 
@@ -87,6 +99,9 @@ export class AutoCompleteFieldComponent implements ControlValueAccessor {
     }
   }
 
+
+  // this function will be used to generate unique id for each instance of autocomplete field input
+  // the purpose of this function is to prevent id collisions when the component appear more than once
   generateUniqueId(length: number) {
     var result = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -96,10 +111,6 @@ export class AutoCompleteFieldComponent implements ControlValueAccessor {
     }
     return result;
   }
-
-  ngOnInit(): void {
-  }
-
 
 
   get nonSelectedSuggestions() {

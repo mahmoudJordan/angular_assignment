@@ -17,6 +17,16 @@
         [suggestions]="cssAvailableColors" [placeholder]="'choose a color'">
       </app-auto-complete-field>
     </div>
+
+
+    <div class="row">
+      <h3>Disabled Example</h3>
+      <app-auto-complete-field [(ngModel)]="selectedColors"
+        [suggestions]="cssAvailableColors" [placeholder]="'choose a color'" [disabled]="true">
+      </app-auto-complete-field>
+    </div>
+
+
   </div>
 
 

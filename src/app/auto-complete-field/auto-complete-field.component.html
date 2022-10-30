@@ -1,4 +1,4 @@
-<div class="input-main-container">
+<div class="input-main-container" [class.disabled]="disabled">
   <div class="chips-container">
     <div class="chip" *ngFor="let item of _value">
       {{item}}
