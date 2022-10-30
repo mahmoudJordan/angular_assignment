@@ -73,20 +73,22 @@ export class AutoCompleteFieldComponent implements ControlValueAccessor {
   }
 
 
-  dataListMaybeClicked($event: any) {
+  dataListClicked($event: any) {
     // to know whether the input occurred because of the suggestion item click , not the user keydown
     var isInputEvent = (Object.prototype.toString.call($event).indexOf("InputEvent") > -1);
-    if(!isInputEvent){
+    if (!isInputEvent) {
       this.addToChips($event.target.value);
     }
   }
 
   removeFromChips(removed: string) {
-    // update the internal array
-    this._value = this._value.filter(x => x != removed)
+    if (!this.disabled) {
+      // update the internal array
+      this._value = this._value.filter(x => x != removed)
 
-    // trigger change notifier
-    this.onChange(this._value);
+      // trigger change notifier
+      this.onChange(this._value);
+    }
   }
 
   setDisabledState?(isDisabled: boolean): void {

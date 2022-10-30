@@ -13,6 +13,10 @@
 
 }
 
+.input-main-container.disabled .chip {
+  background-color: #d1d1d1;
+}
+
 .input-main-container {
   .input {
     border: 0px;

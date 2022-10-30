@@ -11,5 +11,6 @@ export class AppComponent {
   selectedCountries = [];
   selectedColors = [];
   preSelectedColors = ['red' , 'green'];
+  disabledSelectedColors = ['brown' , 'black' , 'white'];
   cssAvailableColors = CSS_COLOR_NAMES;
 }

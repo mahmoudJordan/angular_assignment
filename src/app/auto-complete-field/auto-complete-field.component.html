@@ -2,7 +2,7 @@
   <div class="chips-container">
     <div class="chip" *ngFor="let item of _value">
       {{item}}
-      <span class="closebtn" (click)="removeFromChips(item)">&times;</span>
+      <span class="closebtn" (click)="removeFromChips(item)" *ngIf="!this.disabled">&times;</span>
     </div>
 
   </div>
@@ -12,7 +12,7 @@
     [attr.list]="_uniqueId"
     (keyup.enter)="onEnter($event)"
     class="input"
-    (input)="dataListMaybeClicked($event)" />
+    (input)="dataListClicked($event)" />
 
   <!-- input datalist is an internal implementation of the autocomplete functionality
     the bad thing about this element is that it can't be styled
