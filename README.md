@@ -1,3 +1,12 @@
+# Usage
+
+```typescript
+<auto-complete-field [(ngModel)]="selectedCountries"
+  [suggestions]="['Jordan' , 'Egypt' , 'Germany' , 'USA' , 'Iraq']" [placeholder]="'choose a country'">
+</auto-complete-field>
+```
+
+
 # Autocomplete
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
