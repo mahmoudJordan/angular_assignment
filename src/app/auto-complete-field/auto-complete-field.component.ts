@@ -26,7 +26,7 @@ export class AutoCompleteFieldComponent implements ControlValueAccessor {
   @Input() placeholder: string = "";
 
 
-  // placeholder text
+  // disabled attribute
   @Input() disabled: boolean = false;
 
   // this unique id is for the input datalist
@@ -64,7 +64,7 @@ export class AutoCompleteFieldComponent implements ControlValueAccessor {
 
 
   addToChips(toBeAdded: string) {
-    if (toBeAdded) {
+    if (toBeAdded && this._value.indexOf(toBeAdded) == -1) {
       this._value.push(toBeAdded);
       this.onChange(this._value);
       const input = this.inputElement.nativeElement;
