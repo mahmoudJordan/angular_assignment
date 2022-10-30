@@ -1,0 +1,26 @@
+<div class="input-main-container">
+  <div class="chips-container">
+    <div class="chip" *ngFor="let item of _value">
+      {{item}}
+      <span class="closebtn" (click)="removeFromChips(item)">&times;</span>
+    </div>
+
+  </div>
+  <input
+    #inputElement
+    [placeholder]="placeholder"
+    [attr.list]="_uniqueId"
+    (keyup.enter)="onEnter($event)"
+    class="input"
+    (input)="dataListMaybeClicked($event)" />
+
+  <!-- input datalist is an internal implementation of the autocomplete functionality
+    the bad thing about this element is that it can't be styled
+    the good thing is that the browsers will handle this functionality the best way possible,
+    especially for mobile displays and for huge number of suggestions provided
+    -->
+  <datalist [id]="_uniqueId">
+    <option [value]="sug" *ngFor="let sug of nonSelectedSuggestions" (click)="addToChips(sug)">{{sug}}</option>
+  </datalist>
+
+</div>

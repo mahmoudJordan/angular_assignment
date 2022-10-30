@@ -1,0 +1,40 @@
+.input-main-container .input {
+  border:0px;
+  outline: 0px;
+  margin-left: 10px;
+}
+
+
+
+.input-main-container{
+  border: 1px solid #eee;
+  padding:10px;
+  display: inline-block;
+}
+
+.input-main-container .chips-container
+{
+  display: contents;
+}
+
+.input-main-container .chip {
+  display: inline-block;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 7px;
+  background-color: #f1f1f1;
+  margin-left:5px;
+}
+
+
+.input-main-container .closebtn {
+  padding-left: 10px;
+  color: #000;
+  font-weight: bold;
+  float: right;
+  cursor: pointer;
+}
+
+.input-main-container .closebtn:hover {
+  color: #000;
+}

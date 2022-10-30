@@ -1,0 +1,24 @@
+<div>
+
+  <div class="container">
+    <div class="row">
+      <h3>Country </h3>
+      <app-auto-complete-field [(ngModel)]="selectedCountries"
+        [suggestions]="['Jordan' , 'Egypt' , 'Germany' , 'USA' , 'Iraq']" [placeholder]="'choose a country'">
+      </app-auto-complete-field>
+    </div>
+
+    <div class="saperator"></div>
+
+
+    <div class="row">
+      <h3>Css Available Colors</h3>
+      <app-auto-complete-field [(ngModel)]="selectedColors"
+        [suggestions]="cssAvailableColors" [placeholder]="'choose a color'">
+      </app-auto-complete-field>
+    </div>
+  </div>
+
+
+  <!-- <h2>value : <span *ngFor="let selectedCountry of selectedCountries">{{selectedCountry}}</span> </h2> -->
+</div>
