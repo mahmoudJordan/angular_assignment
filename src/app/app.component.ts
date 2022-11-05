@@ -10,7 +10,15 @@ export class AppComponent {
   title = 'Autocomplete';
   selectedCountries = [];
   selectedColors = [];
-  preSelectedColors = ['red' , 'green'];
-  disabledSelectedColors = ['brown' , 'black' , 'white'];
+  preSelectedColors = ['red', 'green'];
+  disabledSelectedColors = ['brown', 'black', 'white'];
   cssAvailableColors = CSS_COLOR_NAMES;
+
+
+
+  addNewItem() {
+    this.cssAvailableColors.push("rashed");
+    // store the item in new copy for reactivity system to recognize it 
+    this.cssAvailableColors = this.cssAvailableColors.slice();
+  }
 }

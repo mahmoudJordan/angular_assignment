@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, forwardRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 
@@ -14,7 +14,7 @@ export const AUTO_COMPLETE_VALUE_ACCESSOR: any = {
   styleUrls: ['./auto-complete-field.component.scss'],
   providers: [AUTO_COMPLETE_VALUE_ACCESSOR]
 })
-export class AutoCompleteFieldComponent implements ControlValueAccessor {
+export class AutoCompleteFieldComponent implements ControlValueAccessor, OnInit, OnChanges {
 
   // reference to access the input field element
   @ViewChild('inputElement') inputElement: any;
@@ -28,6 +28,9 @@ export class AutoCompleteFieldComponent implements ControlValueAccessor {
 
   // disabled attribute
   @Input() disabled: boolean = false;
+
+  // computed property for suggestions list
+  nonSelectedSuggestions: string[] = [];
 
   // this unique id is for the input datalist
   // id is required for the suggestions datalist to appear under the input field
@@ -114,9 +117,18 @@ export class AutoCompleteFieldComponent implements ControlValueAccessor {
     return result;
   }
 
-
-  get nonSelectedSuggestions() {
-    return this.suggestions.filter(s => !this._value?.includes(s))
+  ngOnInit() {
+    this.updateSuggestionsList(this.suggestions);
   }
+
+  ngOnChanges(changes: any) {
+    this.updateSuggestionsList(changes.suggestions.currentValue);
+  }
+
+  private updateSuggestionsList(newSuggestionsArray: string[]) {
+    this.nonSelectedSuggestions = newSuggestionsArray.filter((s: string) => !this._value?.includes(s));
+
+  }
+
 
 }
